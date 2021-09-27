@@ -23,24 +23,24 @@ provider "kubernetes" {
 resource "kubernetes_manifest" "workspace_gke_cluster" {
   manifest = {
     "apiVersion" = "app.terraform.io/v1alpha1"
-    "kind" = "Workspace"
+    "kind"       = "Workspace"
     "metadata" = {
-      "name" = "gke-cluster"
+      "name"      = "gke-cluster"
       "namespace" = "demo"
     }
     "spec" = {
       "module" = {
-        "source" = "redeux/gke-basic/google"
+        "source"  = "redeux/gke-basic/google"
         "version" = "0.1.0"
       }
       "organization" = "tf-eco-k8s-vmw"
       "outputs" = [
         {
-          "key" = "zone"
+          "key"              = "zone"
           "moduleOutputName" = "google_zone"
         },
         {
-          "key" = "version"
+          "key"              = "version"
           "moduleOutputName" = "node_version"
         },
       ]
@@ -48,30 +48,30 @@ resource "kubernetes_manifest" "workspace_gke_cluster" {
       "variables" = [
         {
           "environmentVariable" = false
-          "key" = "cluster_name"
-          "sensitive" = false
-          "value" = "allthewaydown"
+          "key"                 = "cluster_name"
+          "sensitive"           = false
+          "value"               = "allthewaydown"
         },
         {
           "environmentVariable" = true
-          "key" = "GOOGLE_CREDENTIALS"
-          "sensitive" = true
+          "key"                 = "GOOGLE_CREDENTIALS"
+          "sensitive"           = true
         },
         {
           "environmentVariable" = true
-          "key" = "GOOGLE_PROJECT"
-          "sensitive" = true
+          "key"                 = "GOOGLE_PROJECT"
+          "sensitive"           = true
         },
         {
           "environmentVariable" = true
-          "key" = "GOOGLE_REGION"
-          "sensitive" = true
+          "key"                 = "GOOGLE_REGION"
+          "sensitive"           = true
         },
         {
           "environmentVariable" = true
-          "key" = "CONFIRM_DESTROY"
-          "sensitive" = false
-          "value" = "1"
+          "key"                 = "CONFIRM_DESTROY"
+          "sensitive"           = false
+          "value"               = "1"
         },
       ]
     }
