@@ -30,7 +30,7 @@ resource "kubernetes_manifest" "workspace_gke_cluster" {
     }
     "spec" = {
       "module" = {
-        "source" = "redeux/gke-basic/google/"
+        "source" = "redeux/gke-basic/google"
         "version" = "0.1.0"
       }
       "organization" = "tf-eco-k8s-vmw"
