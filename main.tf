@@ -26,6 +26,7 @@ resource "kubernetes_manifest" "workspace_gke_cluster" {
     "kind" = "Workspace"
     "metadata" = {
       "name" = "gke-cluster"
+      "namespace" = "demo"
     }
     "spec" = {
       "module" = {
