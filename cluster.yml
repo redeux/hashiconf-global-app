@@ -1,0 +1,34 @@
+---
+apiVersion: app.terraform.io/v1alpha1
+kind: Workspace
+metadata:
+  name: gke-cluster
+spec:
+  organization: tf-eco-k8s-vmw
+  secretsMountPath: "/tmp/secrets"
+  module:
+    source: "redeux/gke-basic/google/"
+    version: "0.1.0"
+  outputs:
+    - key: zone
+      moduleOutputName: google_zone
+    - key: version
+      moduleOutputName: node_version
+  variables:
+    - key: cluster_name
+      value: "allthewaydown"
+      sensitive: false
+      environmentVariable: false
+    - key: GOOGLE_CREDENTIALS
+      sensitive: true
+      environmentVariable: true
+    - key: GOOGLE_PROJECT
+      sensitive: false
+      environmentVariable: true
+    - key: GOOGLE_REGION
+      sensitive: false
+      environmentVariable: true
+    - key: CONFIRM_DESTROY
+      value: "1"
+      sensitive: false
+      environmentVariable: true
