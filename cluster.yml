@@ -23,10 +23,10 @@ spec:
       sensitive: true
       environmentVariable: true
     - key: GOOGLE_PROJECT
-      sensitive: false
+      sensitive: true
       environmentVariable: true
     - key: GOOGLE_REGION
-      sensitive: false
+      sensitive: true
       environmentVariable: true
     - key: CONFIRM_DESTROY
       value: "1"

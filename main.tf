@@ -60,12 +60,12 @@ resource "kubernetes_manifest" "workspace_gke_cluster" {
         {
           "environmentVariable" = true
           "key" = "GOOGLE_PROJECT"
-          "sensitive" = false
+          "sensitive" = true
         },
         {
           "environmentVariable" = true
           "key" = "GOOGLE_REGION"
-          "sensitive" = false
+          "sensitive" = true
         },
         {
           "environmentVariable" = true
